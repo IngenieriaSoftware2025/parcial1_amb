@@ -50,6 +50,22 @@
             <div class="card-body p-3">
                 <h3 class="text-center">ACTIVIDADES REGISTRADAS</h3>
 
+                
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="fecha_inicio" class="form-label">Fecha de inicio:</label>
+                        <input type="date" id="fecha_inicio" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fecha_fin" class="form-label">Fecha de fin:</label>
+                        <input type="date" id="fecha_fin" class="form-control">
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button class="btn btn-primary w-100" id="btn_filtrar_fecha">Filtrar</button>
+                    </div>
+                </div>
+                
+
                 <div class="table-responsive p-2">
                     <table class="table table-striped table-hover table-bordered w-100 table-sm" id="TablaActividades">
                     </table>

@@ -19,8 +19,8 @@ class ActividadController extends ActiveRecord {
 
         getHeadersApi();
 
-        $_POST['act_nombre'] = htmlspecialchars($_POST['act_nombre']);
         $_POST['act_horario'] = date('Y-m-d H:i', strtotime($_POST['act_horario']));
+        $_POST['act_nombre'] = htmlspecialchars($_POST['act_nombre']);
 
         $cantidad_nombre = strlen($_POST['act_nombre']);
         if ($cantidad_nombre > 2) {
@@ -29,6 +29,7 @@ class ActividadController extends ActiveRecord {
 
                 $data = new Actividades([
                     'act_nombre' => $_POST['act_nombre'],
+                    'act_horario' => $_POST['act_horario'],
                     'act_situacion' => 1
                 ]);
 

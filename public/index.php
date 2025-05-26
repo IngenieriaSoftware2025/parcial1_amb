@@ -13,6 +13,10 @@ $router->get('/', [AppController::class,'index']);
 
 //url's actividades
 $router->get('/actividades', [ActividadController::class, 'paginaactividades']);
+$router->post('/actividades/guardarAPI', [ActividadController::class, 'guardarAPI']);
+$router->get('/actividades/buscarAPI', [ActividadController::class, 'buscarAPI']);
+$router->post('/actividades/modificarAPI', [ActividadController::class, 'modificarAPI']);
+$router->get('/actividades/eliminar', [ActividadController::class, 'eliminarAPI']);
 
 //url's asistencias
 $router->get('/asistencias', [AsistenciaController::class, 'paginaindex']);
