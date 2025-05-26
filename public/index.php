@@ -21,6 +21,10 @@ $router->get('/actividades/eliminar', [ActividadController::class, 'eliminarAPI'
 
 //url's asistencias
 $router->get('/asistencias', [AsistenciaController::class, 'paginaindex']);
+$router->post('/asistencias/guardarAPI', [AsistenciaController::class, 'guardarAPI']);
+$router->get('/asistencias/buscarAPI', [AsistenciaController::class, 'buscarAPI']);
+$router->post('/asistencias/modificarAPI', [AsistenciaController::class, 'modificarAPI']);
+$router->get('/asistencias/eliminar', [AsistenciaController::class, 'eliminarAPI']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

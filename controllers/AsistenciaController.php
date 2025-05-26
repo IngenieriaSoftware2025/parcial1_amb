@@ -73,7 +73,7 @@ class AsistenciaController extends ActiveRecord
 
         try {
 
-            $sql = "SELECT * FROM asistencias where asi_situacion = 1";
+            $sql = "SELECT * FROM asistencia where asi_situacion = 1";
             $data = self::fetchArray($sql);
 
             http_response_code(200);

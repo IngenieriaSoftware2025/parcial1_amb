@@ -5,7 +5,7 @@ namespace Model;
 class Asistencias extends ActiveRecord
 {
 
-    public static $tabla = 'asistencias';
+    public static $tabla = 'asistencia';
     public static $columnasDB = [
 
         'asi_actividad',

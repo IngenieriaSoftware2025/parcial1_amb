@@ -177,10 +177,6 @@ const datatable = new DataTable('#TablaAsistencias', {
                          data-id="${data}">
                         <i class="bi bi-trash3 me-1"></i>Eliminar
                      </button>
-                     <button class='btn btn-success comprar mx-1' 
-                         data-id="${data}">
-                        <i class="bi bi-bag me-1"></i>Comprar
-                     </button>
                  </div>`;
             }
         }
