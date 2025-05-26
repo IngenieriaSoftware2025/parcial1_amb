@@ -4,10 +4,18 @@ require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
 use Controllers\AppController;
+use Controllers\ActividadController;
+use Controllers\AsistenciaController;
 $router = new Router();
 $router->setBaseURL('/' . $_ENV['APP_NAME']);
 
 $router->get('/', [AppController::class,'index']);
+
+//url's actividades
+$router->get('/actividades', [ActividadController::class, 'paginaactividades']);
+
+//url's asistencias
+$router->get('/asistencias', [AsistenciaController::class, 'paginaindex']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
