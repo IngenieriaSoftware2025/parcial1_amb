@@ -97,8 +97,8 @@ class AsistenciaController extends ActiveRecord
 
     public static function modificarAPI()
     {
-
         getHeadersApi();
+
         $id = $_POST['asi_id'];
         $_POST['asi_horaestablecida'] = date('Y-m-d H:i', strtotime($_POST['asi_horaestablecida']));
         $_POST['asi_horallegada'] = date('Y-m-d H:i', strtotime($_POST['asi_horallegada']));
@@ -118,7 +118,7 @@ class AsistenciaController extends ActiveRecord
                     'asi_situacion' => 1
                 ]);
 
-                
+                $data->evaluarPuntualidad();
                 $data->actualizar();
 
                 http_response_code(200);
