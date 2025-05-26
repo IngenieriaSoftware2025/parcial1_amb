@@ -61,7 +61,7 @@
                         <input type="date" id="fecha_fin" class="form-control">
                     </div>
                     <div class="col-md-4 d-flex align-items-end">
-                        <button class="btn btn-primary w-100" id="btn_filtrar_fecha">Filtrar</button>
+                        <button type="button" class="btn btn-primary w-100" id="btn_filtrar_fecha">Filtrar</button>
                     </div>
                 </div>
                 

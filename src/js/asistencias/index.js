@@ -323,4 +323,4 @@ BtnModificar.addEventListener('click', ModificarAsistencia);
 selectActividad.addEventListener('change', cargarHorarioActividad);
 datatable.on('click', '.modificar', llenarFormulario);
 datatable.on('click', '.eliminar', EliminarAsistencias);
-BtnFiltrarFecha.addEventListener('click', BuscarActividad);
+BtnFiltrarFecha.addEventListener('click', BuscarAsistencias);

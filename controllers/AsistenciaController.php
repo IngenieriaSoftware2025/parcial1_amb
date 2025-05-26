@@ -72,27 +72,40 @@ class AsistenciaController extends ActiveRecord
 
     public static function buscarAPI()
     {
+    try {
+        $fecha_inicio = isset($_GET['fecha_inicio']) ? $_GET['fecha_inicio'] : null;
+        $fecha_fin = isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : null;
 
-        try {
+        $condiciones = ["asi_situacion = 1"];
 
-            $sql = "SELECT * FROM asistencia where asi_situacion = 1";
-            $data = self::fetchArray($sql);
-
-            http_response_code(200);
-            echo json_encode([
-                'codigo' => 1,
-                'mensaje' => 'Asistencias obtenidas correctamente',
-                'data' => $data
-            ]);
-        } catch (Exception $e) {
-            http_response_code(400);
-            echo json_encode([
-                'codigo' => 0,
-                'mensaje' => 'Error al obtener las Asistencias',
-                'detalle' => $e->getMessage(),
-            ]);
+        if ($fecha_inicio) {
+            $condiciones[] = "asi_horallegada >= '{$fecha_inicio} 00:00'";
         }
+
+        if ($fecha_fin) {
+            $condiciones[] = "asi_horallegada <= '{$fecha_fin} 23:59'";
+        }
+
+        $where = implode(" AND ", $condiciones);
+
+        $sql = "SELECT * FROM asistencia WHERE $where";
+        $data = self::fetchArray($sql);
+
+        http_response_code(200);
+        echo json_encode([
+            'codigo' => 1,
+            'mensaje' => 'Registros obtenidos correctamente',
+            'data' => $data
+        ]);
+    } catch (Exception $e) {
+        http_response_code(400);
+        echo json_encode([
+            'codigo' => 0,
+            'mensaje' => 'Error al obtener los registros',
+            'detalle' => $e->getMessage(),
+        ]);
     }
+}
 
 
     public static function modificarAPI()

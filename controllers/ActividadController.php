@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers;
 
 use Exception;
@@ -7,9 +8,11 @@ use MVC\Router;
 use Model\Actividades;
 
 
-class ActividadController extends ActiveRecord {
+class ActividadController extends ActiveRecord
+{
 
-    public function paginaactividades(Router $router){
+    public function paginaactividades(Router $router)
+    {
         $router->render('actividades/index', []);
     }
 
@@ -59,11 +62,26 @@ class ActividadController extends ActiveRecord {
     }
 
 
-    public static function buscarAPI(){
+    public static function buscarAPI()
+    {
 
         try {
+            $fecha_inicio = isset($_GET['fecha_inicio']) ? $_GET['fecha_inicio'] : null;
+            $fecha_fin = isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : null;
 
-            $sql = "SELECT * FROM actividades where act_situacion = 1";
+            $condiciones = ["act_situacion = 1"];
+
+            if ($fecha_inicio) {
+                $condiciones[] = "act_horario >= '{$fecha_inicio} 00:00'";
+            }
+
+            if ($fecha_fin) {
+                $condiciones[] = "act_horario <= '{$fecha_fin} 23:59'";
+            }
+
+            $where = implode(" AND ", $condiciones);
+
+            $sql = "SELECT * FROM actividades WHERE $where";
             $data = self::fetchArray($sql);
 
             http_response_code(200);
@@ -83,7 +101,8 @@ class ActividadController extends ActiveRecord {
     }
 
 
-    public static function modificarAPI() {
+    public static function modificarAPI()
+    {
 
         getHeadersApi();
 
@@ -127,9 +146,10 @@ class ActividadController extends ActiveRecord {
     }
 
 
-    public static function EliminarAPI() {
+    public static function EliminarAPI()
+    {
 
-        try{
+        try {
 
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
 
