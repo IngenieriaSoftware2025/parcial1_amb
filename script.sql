@@ -10,13 +10,10 @@ act_situacion smallint default 1
 create table asistencia(
 asi_id serial primary key,
 asi_actividad int,
-asi_horaestablecida int,
+asi_horaestablecida datetime year to minute,
 asi_horallegada datetime year to minute,
 asi_situacion smallint default 1
 )
 
 alter table asistencia add constraint (foreign key(asi_actividad)
 references actividades(act_id) constraint fk_asi_actividades)
-
-alter table asistencia add constraint (foreign key(asi_horaestablecida)
-references actividades(act_id) constraint fk_asi_hora)

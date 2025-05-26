@@ -6,6 +6,7 @@ use MVC\Router;
 use Controllers\AppController;
 use Controllers\ActividadController;
 use Controllers\AsistenciaController;
+
 $router = new Router();
 $router->setBaseURL('/' . $_ENV['APP_NAME']);
 
