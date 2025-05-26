@@ -12,7 +12,8 @@ asi_id serial primary key,
 asi_actividad int,
 asi_horaestablecida datetime year to minute,
 asi_horallegada datetime year to minute,
-asi_situacion smallint default 1
+asi_situacion smallint default 1,
+asi_puntualidad smallint default 1
 )
 
 alter table asistencia add constraint (foreign key(asi_actividad)

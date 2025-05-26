@@ -158,6 +158,17 @@ const datatable = new DataTable('#TablaAsistencias', {
         { title: 'Nombre', data: 'asi_actividad' },
         { title: 'Fecha Establecida', data: 'asi_horaestablecida' },
         { title: 'Fecha Llegada', data: 'asi_horallegada' },
+        { 
+            title: 'Puntualidad', 
+            data: 'asi_puntualidad',
+            render: (data, type, row, meta) => {
+                if (data == 1) {
+                    return 'Puntual';
+                } else {
+                    return 'Impuntual';
+                }
+            }
+        },
         {
             title: 'Acciones',
             data: 'asi_id',
@@ -170,7 +181,8 @@ const datatable = new DataTable('#TablaAsistencias', {
                          data-id="${data}" 
                          data-actividad="${row.asi_actividad}"
                          data-horaestablecida="${row.asi_horaestablecida}"
-                         data-horallegada="${row.asi_horallegada}">   
+                         data-horallegada="${row.asi_horallegada}"
+                         data-puntualidad="${row.asi_puntualidad}">   
                          <i class="bi bi-pencil-square"></i> Modificar
                      </button>
                      <button class='btn btn-danger eliminar mx-1' 

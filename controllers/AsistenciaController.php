@@ -42,6 +42,8 @@ class AsistenciaController extends ActiveRecord
                     'asi_situacion' => 1
                 ]);
 
+                $data->evaluarPuntualidad();
+
                 $crear = $data->crear();
 
                 http_response_code(200);
@@ -115,6 +117,8 @@ class AsistenciaController extends ActiveRecord
                     'asi_horallegada' => $_POST['asi_horallegada'],
                     'asi_situacion' => 1
                 ]);
+
+                
                 $data->actualizar();
 
                 http_response_code(200);
