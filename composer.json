@@ -1,6 +1,6 @@
 {
-    "name": "mindef/demo",
-    "description": "Proyecto MVC demo",
+    "name": "parcial/amb",
+    "description": "proyecto de examen parcial de ingenieria de software",
     "type": "project",
     "config": {
         "platform-check": false

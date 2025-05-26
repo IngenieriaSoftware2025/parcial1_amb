@@ -1,7 +1,7 @@
 {
-  "name": "demo-app",
+  "name": "parcial-amb",
   "version": "1.0.0",
-  "description": "Aplicacion MVC demo",
+  "description": "examen parcial de ingenieria de software",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
